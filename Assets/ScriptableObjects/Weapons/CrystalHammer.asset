@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
-  m_Name: Sword
+  m_Name: CrystalHammer
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 701de34da4e1e184c8d6353439feabc3, type: 3}
+  icon: {fileID: 21300000, guid: 7799f227f51ae87469762c6dd4619265, type: 3}
   maxLevel: 5
-  itemName: Sword
-  controller: {fileID: 5386848642831577647, guid: 0f40393f2e450c44fb08274d5a6d677c, type: 3}
-  prefab: {fileID: 3445399263290737042, guid: 35504e6423ce90c4c9fc1113b15b8790, type: 3}
+  itemName: Hammer
+  controller: {fileID: 2851205685037811918, guid: 564bf52f8848d9a47a70c1814419a178, type: 3}
+  prefab: {fileID: 6145076578094250018, guid: 38c38cc254db40b40bcfbf25e5a198c0, type: 3}
   speed: 0
-  damage: 10
-  cooldownDuration: 1.5
+  damage: 15
+  cooldownDuration: 2
   pierce: 99
-  lifeTime: 0.34
+  lifeTime: 0.4
   damagePlus: 0

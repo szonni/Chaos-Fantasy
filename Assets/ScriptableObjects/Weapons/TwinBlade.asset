@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
-  m_Name: Sword
+  m_Name: TwinBlade
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 701de34da4e1e184c8d6353439feabc3, type: 3}
+  icon: {fileID: 21300000, guid: 0adce8eb2adcc66479f9da3e3e5af077, type: 3}
   maxLevel: 5
-  itemName: Sword
-  controller: {fileID: 5386848642831577647, guid: 0f40393f2e450c44fb08274d5a6d677c, type: 3}
-  prefab: {fileID: 3445399263290737042, guid: 35504e6423ce90c4c9fc1113b15b8790, type: 3}
+  itemName: Twin BLade
+  controller: {fileID: 7422861013630241790, guid: 47995eb105bd6ab4cb99bd69e1ff8184, type: 3}
+  prefab: {fileID: 7034209705601758851, guid: b7a1be6542171714d8a1c422803c5599, type: 3}
   speed: 0
   damage: 10
-  cooldownDuration: 1.5
+  cooldownDuration: 1
   pierce: 99
-  lifeTime: 0.34
+  lifeTime: 0.3
   damagePlus: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
   m_Name: Doomcaster
   m_EditorClassIdentifier: 
-  icon: {fileID: 702515529, guid: a4dfd3b6a6d996b42b436de6d023179b, type: 3}
+  icon: {fileID: 21300000, guid: a2685bddd68cfd6408dc828bffac8a37, type: 3}
   maxLevel: 5
   itemName: FireStaff
   controller: {fileID: 8247763035044299937, guid: 04e26843797be6b4faef21d55f112d2c, type: 3}

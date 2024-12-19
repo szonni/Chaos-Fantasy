@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 1380290216, guid: add9b0a5ae6149c4bb11fb4e904c9bf8, type: 3}
   animationController: {fileID: 22100000, guid: e56f86c669cd29748a22ee70b8425c9b, type: 2}
-  startingWeapon: {fileID: 5386848642831577647, guid: 0f40393f2e450c44fb08274d5a6d677c, type: 3}
+  startingWeapon: {fileID: 2851205685037811918, guid: 564bf52f8848d9a47a70c1814419a178, type: 3}
   maxHealth: 200
   moveSpeed: 2
   recovery: 1
   might: 1
   projectileSpeed: 18
   magnet: 2
+  cooldownReduction: 0

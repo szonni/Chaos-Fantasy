@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
-  m_Name: Sword
+  m_Name: Shuriken
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 701de34da4e1e184c8d6353439feabc3, type: 3}
+  icon: {fileID: 21300000, guid: 425bf7a07a3aed547a6cc430c674b356, type: 3}
   maxLevel: 5
-  itemName: Sword
-  controller: {fileID: 5386848642831577647, guid: 0f40393f2e450c44fb08274d5a6d677c, type: 3}
-  prefab: {fileID: 3445399263290737042, guid: 35504e6423ce90c4c9fc1113b15b8790, type: 3}
-  speed: 0
+  itemName: Shuriken
+  controller: {fileID: 7467549899744572745, guid: 04b5ecf96fd0b4545b6786153e6cb51e, type: 3}
+  prefab: {fileID: 6457078864532051562, guid: 370169ab6d8c88640a6199dc553daa75, type: 3}
+  speed: 10
   damage: 10
-  cooldownDuration: 1.5
-  pierce: 99
-  lifeTime: 0.34
+  cooldownDuration: 1
+  pierce: 1
+  lifeTime: 1
   damagePlus: 0

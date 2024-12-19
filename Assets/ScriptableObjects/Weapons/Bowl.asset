@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
-  m_Name: Knife
+  m_Name: Bowl
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 26cca66fdf854f441aac566101554c87, type: 3}
+  icon: {fileID: 21300000, guid: 7a4ac1923ed68484b97e2aa38769aefc, type: 3}
   maxLevel: 5
   itemName: Knife
   controller: {fileID: 5386848642831577647, guid: 1b5af089d237bce47be6aabbc7530315, type: 3}
