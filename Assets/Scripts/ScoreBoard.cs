@@ -29,32 +29,5 @@ public class ScoreBoard
     public List<Inventory.Slot> weaponSlots = new();
     public List<Inventory.Slot> passiveSlots = new();
     public float totalDamage = 0;
-    // Phương thức lưu dữ liệu vào file
-    public void SaveToFile(string filePath)
-    {
-        
-        using (StreamWriter writer = new StreamWriter(filePath))
-        {
-            writer.WriteLine($"Enemy Killed: {enemyKilled}");
-            writer.WriteLine($"Time Scoreboard: {timeScoreboard.text}");
-            writer.WriteLine($"Player Level: {lvPlayer}");
-
-            writer.WriteLine("Weapon Slots:");
-            foreach (var weapon in weaponSlots)
-            {
-                if (weapon.item != null)
-                {
-                    writer.WriteLine($"- {weapon.item.itemName}");
-                }
-            }
-            writer.WriteLine("Passive Slots:");
-            foreach (var passive in passiveSlots)
-            {
-                if (passive.item != null)
-                writer.WriteLine($"- {passive.item.itemName}");
-            }
-
-            writer.WriteLine($"Total Damage: {totalDamage}");
-        }
-    }
+    
 }

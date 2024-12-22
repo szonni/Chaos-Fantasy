@@ -23,3 +23,10 @@ MonoBehaviour:
   pierce: 1
   lifeTime: 10
   damagePlus: 0
+  Descriptions:
+  - Create a fireball in the facing direction
+  - Bigger fireball and spawn a small one at the opposite direction
+  - spawn 2 more fireballs in cone shape
+  - ex
+  - max level
+  - max level

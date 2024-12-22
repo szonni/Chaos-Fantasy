@@ -1,93 +1,120 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Knife : Weapon
 {
-    public float doubleShotDelay = 0.005f; // Khoảng thời gian delay giữa 2 lần bắn
+    public int baseKnifeCount = 1;        // Số dao cơ bản
+    public float rotationSpeed = 150f;   // Tốc độ quay mặc định
+    public float orbitRadius = 2f;     // Bán kính quay mặc định
+    public float defaultSizeFactor = 1f; // Hệ số kích thước mặc định
+    public float largeSizeFactor = 1.5f;  // Hệ số kích thước lớn hơn
 
-    // Start is called before the first frame update
+    private Transform playerTransform;
+    private List<GameObject> activeKnives = new List<GameObject>(); // Danh sách dao hiện tại
+
     protected override void Start()
     {
         base.Start();
+        playerTransform = this.transform; // Lấy vị trí người chơi
+        UpdateKnives();
     }
 
     protected override void Attack()
     {
-        base.Attack();
-
-        if (currentLevel < 3)
-        {
-            // Level 1 và 2: chỉ bắn 1 lần
-            SpawnKnives();
-        }
-        else
-        {
-            // Level 3 trở lên: bắn 2 lần liên tiếp
-            StartCoroutine(DoubleShot());
-        }
+        // Logic tấn công nếu cần
     }
 
-    private IEnumerator DoubleShot()
+    private void UpdateKnives()
     {
-        // Lần bắn đầu tiên
-        SpawnKnives();
+        // Xóa tất cả dao hiện tại
+        foreach (var knife in activeKnives)
+        {
+            Destroy(knife); // Hủy đối tượng dao
+        }
+        activeKnives.Clear(); // Dọn danh sách dao
 
-        // Chờ delay giữa 2 lần bắn
-        yield return new WaitForSeconds(doubleShotDelay);
+        // Thay đổi thuộc tính dao dựa trên cấp độ
+        int knifeCount = baseKnifeCount;
+        float angleStep;
+        float sizeFactor = defaultSizeFactor; // Hệ số kích thước mặc định
 
-        // Lần bắn thứ hai
-        SpawnKnives();
-    }
-
-    private void SpawnKnives()
-    {
         switch (currentLevel)
         {
-            case 1: // Level 1: Ném 1 dao
-                SpawnKnife(pm.ShootDir);
+            case 1: // Level 1: 1 dao, kích thước mặc định
+                knifeCount = 1;
+                orbitRadius = 1.5f;
+                rotationSpeed = 100f;
+                sizeFactor = defaultSizeFactor;
                 break;
 
-            case 2: // Level 2: Ném 2 dao theo góc chéo
-                SpawnKnife(pm.ShootDir);
-                SpawnKnife(-pm.ShootDir);
+            case 2: // Level 2: 2 dao, kích thước mặc định
+                knifeCount = 2;
+                orbitRadius = 1.5f;
+                rotationSpeed = 100f;
+                sizeFactor = defaultSizeFactor;
                 break;
 
-            case 3: // Level 3: Ném 3 dao theo góc
-                SpawnKnife(pm.ShootDir);
-                SpawnKnife(Quaternion.Euler(0, 0, 30) * pm.ShootDir); // Dao lệch 30 độ
-                SpawnKnife(Quaternion.Euler(0, 0, -30) * pm.ShootDir); // Dao lệch -30 độ
+            case 3: // Level 3: 2 dao, kích thước lớn hơn, quay nhanh hơn
+                knifeCount = 2;
+                orbitRadius = 1.5f;
+                rotationSpeed = 150f; // Tăng tốc độ quay
+                sizeFactor = largeSizeFactor;
                 break;
-            case 4:
-                SpawnKnife(pm.ShootDir);
-                SpawnKnife(-pm.ShootDir);
-                SpawnKnife(Quaternion.Euler(0, 0, 30) * pm.ShootDir); // Dao lệch 30 độ
-                SpawnKnife(Quaternion.Euler(0, 0, -30) * pm.ShootDir); // Dao lệch -30 độ
+
+            case 4: // Level 4: 3 dao, kích thước mặc định
+                knifeCount = 3;
+                orbitRadius = 1.5f;
+                rotationSpeed = 100f;
+                sizeFactor = defaultSizeFactor;
                 break;
-            case 5: // Level 4: Ném 4 dao 4 hướng
-                SpawnKnife(Vector2.up);
-                SpawnKnife(Vector2.down);
-                SpawnKnife(Vector2.left);
-                SpawnKnife(Vector2.right);
+
+            case 5: // Level 5: 3 dao, kích thước lớn hơn
+                knifeCount = 3;
+                orbitRadius = 1.5f;
+                rotationSpeed = 150f; // Tăng tốc độ quay
+                sizeFactor = largeSizeFactor;
+                break;
+
+            default:
                 break;
         }
+
+        // Tính góc chia đều dao
+        angleStep = 360f / knifeCount;
+
+        // Tạo dao
+        SpawnKnives(knifeCount, angleStep, sizeFactor);
     }
 
-    private void SpawnKnife(Vector2 direction)
+    private void SpawnKnives(int knifeCount, float angleStep, float sizeFactor)
     {
-        GameObject knife = Instantiate(weaponData.prefab);
-        knife.transform.position = this.transform.position;
-
-        // Truyền hướng bắn cho projectile
-        KnifeProjectile projectile = knife.GetComponent<KnifeProjectile>();
-        if (projectile != null)
+        for (int i = 0; i < knifeCount; i++)
         {
-            projectile.CheckDirection(direction);
+            float angle = i * angleStep;
+            Vector3 spawnPosition = playerTransform.position +
+                                    new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * orbitRadius;
+            GameObject knife = Instantiate(weaponData.prefab, spawnPosition, Quaternion.Euler(0, angle, 0));
+
+            // Đặt kích thước dao bằng cách nhân Vector3.one với hệ số kích thước
+            knife.transform.localScale = Vector3.one * sizeFactor;
+
+            KnifeProjectile projectile = knife.GetComponent<KnifeProjectile>();
+            if (projectile != null)
+            {
+                projectile.SetOrbit(playerTransform, angle, orbitRadius, rotationSpeed);
+            }
+
+            activeKnives.Add(knife); // Thêm dao vào danh sách quản lý
         }
     }
 
     public override bool LevelUp()
     {
         if (!base.LevelUp()) return false;
+
+        // Cập nhật dao theo cấp độ
+        UpdateKnives();
+
         return true;
     }
 }

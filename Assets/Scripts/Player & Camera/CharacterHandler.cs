@@ -48,7 +48,7 @@ public class CharacterHandler : MonoBehaviour
     public Image healthBar;
     public Image expBar;
     public TextMeshProUGUI levelText;
-
+    AudioManager audioManager;
     // This determines how many seconds the character has before taking damage again
     [Header("I-Frames")]
     public float invincibilityDuration;
@@ -93,7 +93,8 @@ public class CharacterHandler : MonoBehaviour
 
         // Set the starting weapon
         AcquireWeapon(characterData.StartingWeapon);
-
+        //UI Audio
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -190,15 +191,13 @@ public class CharacterHandler : MonoBehaviour
     [ContextMenu("testdie")]
     void Die()
     {
+        audioManager.PlaySFX(audioManager.deathMusic);
         ScoreBoard.Instance.timeScoreboard = GameManager.instance.stopWatchDisplay;
         ScoreBoard.Instance.lvPlayer = level;
         ScoreBoard.Instance.weaponSlots = new(inventory.weaponSlots);
         ScoreBoard.Instance.passiveSlots = new(inventory.passiveItemSlots);
         GameManager.instance.TriggerGameOver();
-        // Đường dẫn file
-        string filePath = "Scoreboard.txt";
-        ScoreBoard.Instance.SaveToFile(filePath);
-
+    
     }
     
     // Character health regeneration

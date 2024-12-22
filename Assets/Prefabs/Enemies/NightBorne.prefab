@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 537933733814760377}
   - component: {fileID: -7230080051396092677}
   - component: {fileID: 2410118558791788063}
-  - component: {fileID: 6272429869085630122}
   m_Layer: 6
   m_Name: NightBorne
   m_TagString: Enemy
@@ -139,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21754c22e69d68429dd2b068f8194c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 79784be869f26614a9fb9d7dee51d538, type: 2}
   currentSpeed: 0
 --- !u!58 &-7230080051396092677
 CircleCollider2D:
@@ -192,21 +190,6 @@ MonoBehaviour:
   - name: BlueGem
     itemPrefab: {fileID: 4373212321340365832, guid: cdaf7ea55e7f4ff4a987a67920912a0d, type: 3}
     dropRate: 50
---- !u!114 &6272429869085630122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037411187401868159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0102dfea91e8c744b013c4200cfb7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 10
-  attackRange: 0.5
-  attackCooldown: 2
 --- !u!1 &4930905901376368271
 GameObject:
   m_ObjectHideFlags: 0

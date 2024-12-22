@@ -47,4 +47,6 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 0
   itemName: 
-  weaponData: {fileID: 11400000, guid: 265ed854a6cfd7d4cbfcfe287d9c513a, type: 2}
+  weaponData: {fileID: 11400000, guid: 1d9b2afc9c9784944814447e9e6e067f, type: 2}
+  baseKnifeCount: 1
+  rotationSpeed: 100

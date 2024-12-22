@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -495743934428735374}
   - component: {fileID: -3300405507885975105}
   - component: {fileID: 7599628520083892020}
-  - component: {fileID: 7836314103056753550}
   m_Layer: 6
   m_Name: Bat
   m_TagString: Enemy
@@ -139,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21754c22e69d68429dd2b068f8194c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 2a541541285868c459b574133e7af4fe, type: 2}
   currentSpeed: 0
 --- !u!58 &-3300405507885975105
 CircleCollider2D:
@@ -192,21 +190,6 @@ MonoBehaviour:
   - name: GreenGem
     itemPrefab: {fileID: 4373212321340365832, guid: 9d30dd8d8ba176740855f4bf5fdee955, type: 3}
     dropRate: 60
---- !u!114 &7836314103056753550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964908974575422787}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0102dfea91e8c744b013c4200cfb7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 10
-  attackRange: 0.5
-  attackCooldown: 1
 --- !u!1 &7539830848292761981
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,3 +18,10 @@ MonoBehaviour:
   prefab: {fileID: 4456503766738893257, guid: 0f7b79e9968da1f4e9f148541de518ca, type: 3}
   multiplier: 10
   multiplierUpNextLevel: 10
+  Descriptions:
+  - Increase damage by 10%
+  - Increase damage by 20%
+  - Increase damage by 30%
+  - Increase damage by 40%
+  - Increase damage by 50%
+  - Max Level

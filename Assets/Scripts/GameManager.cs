@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     {
         Playing,
         Paused,
-        LevelUp
+        LevelUp,
     }
     public GameState currentState;
 
@@ -22,11 +23,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Screens")]
     public GameObject levelUpScreen;
-    [Header("UI Elements")]
-    public GameOverDisplay gameOverDisplay;
-    public GameObject pauseMenu; 
-    public Button pauseButton; 
 
+    [Header("UI Elements")]
+    public GameObject pauseMenu; 
+    public Button pauseButton;
+    public AudioManager audioManager;
+    [Header("Game Over")]
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI enemyKilledText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI playerLevelText;
+    public TextMeshProUGUI totalDamageText;
     void Awake()
     {
         if (instance == null)
@@ -47,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         levelUpScreen.SetActive(false);
         pauseMenu.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
     void Start()
     {
@@ -54,10 +62,15 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);  // Hide the pause menu initially
         Time.timeScale = 1f;
 
-        // Set up the button's onClick event to toggle pause state
-        pauseButton.onClick.AddListener(TogglePause);
+    // Gọi nhạc gameplay khi bắt đầu game
+    if (audioManager != null)
+    {
+        audioManager.PlayGameplayMusic();  // Chạy nhạc gameplay
     }
-    void Update()
+
+    // Set up the button's onClick event to toggle pause state
+    pauseButton.onClick.AddListener(TogglePause);
+}    void Update()
     {
         if (currentState == GameState.Playing)
         {
@@ -133,10 +146,34 @@ public class GameManager : MonoBehaviour
 
         stopWatchDisplay.text = string.Format("{0}:{1:00}", minutes, seconds);
     }
+
+       public void StartGame()
+    {
+        // Chuyển sang Gameplay Scene
+        SceneManager.LoadScene("GameplayScene");
+
+        // Gọi nhạc gameplay sau khi chuyển scene
+        if (audioManager != null)
+        {
+            audioManager.PlayGameplayMusic();
+        }
+    }
     public void TriggerGameOver()
     {
-        gameOverDisplay.ShowGameOverScreen();
+        ShowGameOverScreen();
         Time.timeScale = 0; // Dừng trò chơi
-    }
 
+    }
+    public void ShowGameOverScreen()
+    {
+        // Gán dữ liệu từ ScoreBoard
+        var scoreboard = ScoreBoard.Instance;
+        enemyKilledText.text = $"Enemies Killed: {scoreboard.enemyKilled}";
+        timeText.text = $"Time: {scoreboard.timeScoreboard.text}";
+        playerLevelText.text = $"Player Level: {scoreboard.lvPlayer}";
+        totalDamageText.text = $"Total Damage: {scoreboard.totalDamage}";
+
+        gameOverPanel.SetActive(true);
+    }
 }
+

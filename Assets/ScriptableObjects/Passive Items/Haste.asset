@@ -18,3 +18,10 @@ MonoBehaviour:
   prefab: {fileID: 5508630418685370337, guid: 220ca2390c5566949bcd97ecf0473a7e, type: 3}
   multiplier: 10
   multiplierUpNextLevel: 10
+  Descriptions:
+  - Reduce cooldown duration by 10%
+  - Reduce cooldown duration by 20%
+  - Reduce cooldown duration by 30%
+  - Reduce cooldown duration by 40%
+  - Reduce cooldown duration by 50%
+  - Max Level

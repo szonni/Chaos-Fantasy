@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b499a91e9b0ee9145bb7db3bdf0c6dc0, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1721871025, guid: f86bb5ed7ec07e64fb996c56b411c77a, type: 3}
+  maxLevel: 5
+  itemName: Arrow
+  controller: {fileID: 5595649356969491520, guid: 783c95e58ea9ee947a128ca7bdbe721c, type: 3}
+  prefab: {fileID: 3750776185839555673, guid: 0e304ac078b008943adbcc00cbe9bb44, type: 3}
+  speed: 10
+  damage: 10
+  cooldownDuration: 2
+  pierce: 1
+  lifeTime: 1.5
+  damagePlus: 0
+  Descriptions:
+  - Fire an arrow at facing direction
+  - Fire arrows in 2 directions
+  - Fire in 3 arrows cone shapes
+  - Fire in 4 directions
+  - Max Level
+  - Max Level

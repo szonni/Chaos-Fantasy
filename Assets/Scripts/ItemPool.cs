@@ -27,7 +27,7 @@ public class ItemPool : MonoBehaviour
     }
     public List<Option> TableUI;
 
-    void Awake()
+    void Start()
     {
         inventory = FindFirstObjectByType<Inventory>();
         player = FindFirstObjectByType<CharacterHandler>();
@@ -78,6 +78,7 @@ public class ItemPool : MonoBehaviour
                         TableUI[a].icon.sprite = weaponData.icon;
                         TableUI[a].displayName.text = weaponData.name;
                         TableUI[a].level.text = "*NEW*";
+                        TableUI[a].displayDescription.text = weaponData.Descriptions[0];
                         TableUI[a].level.color = Color.yellow; // Yellow
                         break;
                     } else if (itemData.name == weapon.weaponData.name && inventory.weaponSlots[i] != null) // Check by name
@@ -89,6 +90,7 @@ public class ItemPool : MonoBehaviour
                         });
                         TableUI[a].icon.sprite = weapon.weaponData.icon;
                         TableUI[a].displayName.text = weapon.weaponData.name;
+                        TableUI[a].displayDescription.text = weapon.weaponData.Descriptions[weapon.currentLevel];
                         TableUI[a].level.text = $"Level {weapon.currentLevel + 1}"; // if not a new item then don't show *new*
                         TableUI[a].level.color = Color.black;
                         break;
@@ -112,6 +114,7 @@ public class ItemPool : MonoBehaviour
                         TableUI[a].icon.sprite = passiveItemData.icon;
                         TableUI[a].displayName.text = passiveItemData.name;
                         TableUI[a].level.text = "*NEW*";
+                        TableUI[a].displayDescription.text = passiveItemData.Descriptions[0];
                         TableUI[a].level.color = Color.yellow; // Yellow
                         break;
                     } else if (itemData.name == passiveItem.passiveItemData.name && inventory.passiveItemSlots[i] != null) // if the item is in inventory
@@ -124,6 +127,7 @@ public class ItemPool : MonoBehaviour
                         });
                         TableUI[a].icon.sprite = passiveItem.passiveItemData.icon;
                         TableUI[a].displayName.text = passiveItem.passiveItemData.name;
+                        TableUI[a].displayDescription.text = passiveItem.passiveItemData.Descriptions[passiveItem.currentLevel];
                         TableUI[a].level.text = $"Level {passiveItem.currentLevel + 1}"; // if not a new item then don't show *new*
                         TableUI[a].level.color = Color.black;
                         break;

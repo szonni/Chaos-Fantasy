@@ -8,7 +8,12 @@ public class Weapon : Item
     private float currentCooldownDuration;
 
     protected PlayerMovement pm;
+    AudioManager audioManager;
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public virtual void Initialize(WeaponData data)
     {
         base.Initialize(data);
@@ -42,5 +47,6 @@ public class Weapon : Item
     protected virtual void Attack()
     {
         cooldown = currentCooldownDuration;
+        audioManager.PlaySFX(audioManager.atkMusic);
     }
 }

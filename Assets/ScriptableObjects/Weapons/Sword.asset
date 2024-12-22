@@ -23,3 +23,10 @@ MonoBehaviour:
   pierce: 99
   lifeTime: 0.34
   damagePlus: 0
+  Descriptions:
+  - Slash at the facing direction
+  - Increase Size
+  - Create slash at the opposite direction
+  - Create 4 slashes at 4 directions
+  - Increase size
+  - Max Level

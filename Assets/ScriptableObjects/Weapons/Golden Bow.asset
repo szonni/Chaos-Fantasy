@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Golden Bow
   m_EditorClassIdentifier: 
   icon: {fileID: -1079953294, guid: a4dfd3b6a6d996b42b436de6d023179b, type: 3}
-  maxLevel: 0
-  itemName: 
-  controller: {fileID: 0}
-  prefab: {fileID: 0}
-  speed: 0
-  damage: 0
-  cooldownDuration: 0
-  pierce: 0
-  lifeTime: 0
+  maxLevel: 5
+  itemName: knife
+  controller: {fileID: 5386848642831577647, guid: 1b5af089d237bce47be6aabbc7530315, type: 3}
+  prefab: {fileID: 826361756072723164, guid: aa6fcbf50102bcd46aa2a3ad1aa8e48b, type: 3}
+  speed: 2
+  damage: 20
+  cooldownDuration: 2
+  pierce: 99999
+  lifeTime: 10000
   damagePlus: 0
+  Descriptions: []

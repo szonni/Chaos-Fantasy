@@ -15,8 +15,8 @@ MonoBehaviour:
   icon: {fileID: -1555169074, guid: a4dfd3b6a6d996b42b436de6d023179b, type: 3}
   maxLevel: 0
   itemName: 
-  controller: {fileID: 0}
-  prefab: {fileID: 0}
+  controller: {fileID: 5595649356969491520, guid: 783c95e58ea9ee947a128ca7bdbe721c, type: 3}
+  prefab: {fileID: 3750776185839555673, guid: 0e304ac078b008943adbcc00cbe9bb44, type: 3}
   speed: 0
   damage: 0
   cooldownDuration: 0

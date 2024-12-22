@@ -11,7 +11,7 @@ public class Sword : Weapon
     protected override void Attack()
     {
         base.Attack();
-
+  
         float rangeMultiplier = 1f;
         switch (currentLevel)
         {

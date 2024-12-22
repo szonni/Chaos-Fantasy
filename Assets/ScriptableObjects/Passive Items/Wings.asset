@@ -18,3 +18,10 @@ MonoBehaviour:
   prefab: {fileID: 862188616611119623, guid: a01c2d9d08839b14dbfda73b1f2ef0b8, type: 3}
   multiplier: 10
   multiplierUpNextLevel: 10
+  Descriptions:
+  - Increase movement speed by 10%
+  - Increase movement speed by 20%
+  - Increase movement speed by 30%
+  - Increase movement speed by 40%
+  - Increase movement speed by 50%
+  - Max Level
